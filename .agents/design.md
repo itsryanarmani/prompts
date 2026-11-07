@@ -4,7 +4,7 @@
 
 This repository is reserved for refined prompts used across agent command-line tools.
 
-No prompt exists. This document records current evidence and prevents an invented content contract.
+The first prompt covers code mapping, unused code, duplication, and dependencies.
 
 ## Colors
 
@@ -14,15 +14,15 @@ Editors, terminals, and GitHub control any syntax highlighting.
 
 ## Typography
 
-No font, text scale, line-length rule, or Markdown hierarchy exists for prompt files.
+Prompt files start with a descriptive level-one title and use ordinary Markdown sections.
 
-The root README uses standard Markdown. Do not infer a prompt template from that document.
+The README indexes every prompt with a relative file link.
 
 ## Layout
 
-The `prompts/` directory contains only `.gitkeep`. There are no categories, nested collections, or prompt files.
+Store one prompt per Markdown file under `prompts/`.
 
-No filename pattern, frontmatter block, variable syntax, or model-specific folder is defined.
+Use lowercase, hyphenated filenames. Use placeholders for private project details.
 
 ## Elevation & Depth
 
@@ -38,15 +38,15 @@ Standard Markdown punctuation has no special prompt meaning in the current repos
 
 ## Components
 
-There are no prompt components, templates, examples, variables, tests, renderers, or loaders.
+The collection has a Python checker and process tests, without a prompt runtime.
 
-The pull-request review workflow ignores Markdown paths. Prompt documentation therefore needs deliberate human review.
+CI checks privacy patterns, Markdown hygiene, and index coverage. Human review checks identifying context.
 
 ## Do's and Don'ts
 
 Do keep statements tied to tracked files.
 
-Do update this document when the first prompt establishes an actual pattern.
+Do update this document when the prompt format changes.
 
 Do state unimplemented behavior as unimplemented.
 

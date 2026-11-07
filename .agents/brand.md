@@ -4,30 +4,30 @@
 
 This public repository is intended to collect refined prompts reused across agent command-line tools.
 
-It belongs to the AI workspace described in the README. The `agents` repository is that workspace's hub.
+Keep private project context in agent sessions, outside this collection.
 
 ## Current state
 
-No prompt is implemented. The `prompts/` directory contains only a placeholder file.
+The `prompts/` directory contains one generic code cleanup prompt.
 
-The repository has no prompt schema, model contract, package, command, release process, or deployment configuration.
+The repository has a Python checker and CI, without a prompt runtime or deployment target.
 
-Do not describe the collection as curated, portable, tested, or model-neutral until tracked prompts prove those properties.
+Do not claim tested prompt outcomes or model compatibility from a passing content check.
 
 ## Audience
 
 The intended readers are maintainers and users looking for reusable prompt text.
 
-Until content exists, the README and these context files are the only descriptive surfaces.
+The README indexes the tracked prompts and documents their privacy rules.
 
 ## Voice
 
 Use direct, literal repository language. Separate current contents from intended purpose.
 
-Do not write product marketing for an empty collection.
+Keep descriptions tied to tracked content and measured checks.
 
 ## Boundaries
 
-The sibling repositories listed in the README provide workspace context. They do not define this repository's prompt format.
+Prompts and the README must contain no personal information or real project names.
 
 This repository has no logo, palette, user interface, product site, or owned domain.
