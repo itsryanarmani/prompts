@@ -27,6 +27,9 @@ def check(root):
     def report(path, line, rule):
         findings.append(f"{path.relative_to(root)}:{line}: {rule}")
 
+    for path in (root / "prompts").rglob("*"):
+        if path.is_symlink() or (path.is_file() and path.suffix != ".md"):
+            report(path, 1, "Only regular Markdown prompt files are allowed.")
     if not prompts:
         findings.append("prompts:1: Add at least one Markdown prompt.")
     for path in files:

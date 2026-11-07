@@ -10,7 +10,7 @@ CHECK = Path(__file__).resolve().parents[1] / "scripts" / "check.py"
 
 
 class CheckCommand(unittest.TestCase):
-    def run_check(self, text=None, name="sample.md", readme=None):
+    def run_check(self, text=None, name="sample.md", readme=None, extra=None):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / "prompts").mkdir()
@@ -23,6 +23,8 @@ class CheckCommand(unittest.TestCase):
                     text if text is not None else "# Sample\n\nUse <PROJECT> and <PATH>.\n",
                     encoding="utf-8",
                 )
+            if extra is not None:
+                (root / "prompts" / "extra.txt").write_text(extra, encoding="utf-8")
             return subprocess.run(
                 [sys.executable, str(CHECK), "--root", folder],
                 capture_output=True, text=True, check=False,
@@ -54,6 +56,11 @@ class CheckCommand(unittest.TestCase):
     def test_readme_is_also_checked(self):
         result = self.run_check(readme="# Collection\n\nperson@example.invalid\n")
         self.assertNotEqual(result.returncode, 0)
+
+    def test_non_markdown_prompt_cannot_bypass_checks(self):
+        result = self.run_check(extra="person@example.invalid")
+        self.assertNotEqual(result.returncode, 0)
+        self.assertNotIn("person@example.invalid", result.stdout + result.stderr)
 
     def test_markdown_structure_failures(self):
         for text in ["No heading\n", "# Sample\n\nText  \n", "# Sample", "# Sample\n\n```text\nunclosed\n", "# Sample\n\n~~~text\nunclosed\n"]:
